@@ -20,6 +20,8 @@ import {AuthContext} from '../components/context';
 
 import Users from '../model/users';
 
+import {useTheme} from 'react-native-paper';
+
 const SignInScreen = ({navigation}) => {
   const [data, setData] = React.useState({
     username: '',
@@ -31,6 +33,8 @@ const SignInScreen = ({navigation}) => {
   });
 
   const {signIn} = React.useContext(AuthContext);
+
+  const {colors} = useTheme();
 
   const textInputChange = val => {
     if (val.trim().length >= 4) {
@@ -116,13 +120,16 @@ const SignInScreen = ({navigation}) => {
       <View style={styles.header}>
         <Text style={styles.text_header}>Welcome!</Text>
       </View>
-      <Animatable.View animation="fadeInUpBig" style={styles.footer}>
-        <Text style={styles.text_footer}>Username</Text>
+      <Animatable.View
+        animation="fadeInUpBig"
+        style={[styles.footer, {backgroundColor: colors.background}]}>
+        <Text style={[styles.text_footer, {color: colors.text}]}>Username</Text>
         <View style={styles.action}>
-          <FontAwesome name="user-o" color="#05375a" size={20} />
+          <FontAwesome name="user-o" color={colors.text} size={20} />
           <TextInput
             placeholder="Your Username"
-            style={styles.textInput}
+            placeholderTextColor="#666666"
+            style={[styles.textInput, {color: colors.text}]}
             autoCapitalize="none"
             onChangeText={val => textInputChange(val)}
             onEndEditing={e => handleValidUser(e.nativeEvent.text)}
@@ -140,21 +147,16 @@ const SignInScreen = ({navigation}) => {
             </Text>
           </Animatable.View>
         )}
-        <Text
-          style={[
-            styles.text_footer,
-            {
-              marginTop: 35,
-            },
-          ]}>
+        <Text style={[styles.text_footer, {color: colors.text, marginTop: 35}]}>
           Password
         </Text>
         <View style={styles.action}>
-          <Feather name="lock" color="#05375a" size={20} />
+          <Feather name="lock" color={colors.text} size={20} />
           <TextInput
             placeholder="Your Password"
+            placeholderTextColor="#666666"
             secureTextEntry={data.secureTextEntry ? true : false}
-            style={styles.textInput}
+            style={[styles.textInput, {color: colors.text}]}
             autoCapitalize="none"
             onChangeText={val => handlePasswordChange(val)}
           />
