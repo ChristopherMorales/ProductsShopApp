@@ -11,6 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		47CFCA9F2622148500ED21A6 /* libswiftWebKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 47CFCA9E2622148500ED21A6 /* libswiftWebKit.tbd */; };
 		4DFC6A2AF025326E0CEEC7B8 /* libPods-FoodFinder2-FoodFinder2Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BB14AD5A84C5417C3965A2 /* libPods-FoodFinder2-FoodFinder2Tests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		EF4E9A6A4916C4802C479D30 /* libPods-FoodFinder2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E24C8040A14B83ED359E1C /* libPods-FoodFinder2.a */; };
@@ -40,6 +41,7 @@
 		1EBFAEC06259E63B88FF800B /* Pods-FoodFinder2-FoodFinder2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFinder2-FoodFinder2Tests.debug.xcconfig"; path = "Target Support Files/Pods-FoodFinder2-FoodFinder2Tests/Pods-FoodFinder2-FoodFinder2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		34BB14AD5A84C5417C3965A2 /* libPods-FoodFinder2-FoodFinder2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodFinder2-FoodFinder2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E24C8040A14B83ED359E1C /* libPods-FoodFinder2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodFinder2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		47CFCA9E2622148500ED21A6 /* libswiftWebKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWebKit.tbd; path = usr/lib/swift/libswiftWebKit.tbd; sourceTree = SDKROOT; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = FoodFinder2/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B80C45E447B6A773D9F2D7A2 /* Pods-FoodFinder2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFinder2.debug.xcconfig"; path = "Target Support Files/Pods-FoodFinder2/Pods-FoodFinder2.debug.xcconfig"; sourceTree = "<group>"; };
 		D61D7A084A232BB76126B024 /* Pods-FoodFinder2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFinder2.release.xcconfig"; path = "Target Support Files/Pods-FoodFinder2/Pods-FoodFinder2.release.xcconfig"; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47CFCA9F2622148500ED21A6 /* libswiftWebKit.tbd in Frameworks */,
 				EF4E9A6A4916C4802C479D30 /* libPods-FoodFinder2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +113,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				47CFCA9E2622148500ED21A6 /* libswiftWebKit.tbd */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				35E24C8040A14B83ED359E1C /* libPods-FoodFinder2.a */,
 				34BB14AD5A84C5417C3965A2 /* libPods-FoodFinder2-FoodFinder2Tests.a */,
@@ -200,7 +204,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -430,13 +434,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1EBFAEC06259E63B88FF800B /* Pods-FoodFinder2-FoodFinder2Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = FoodFinder2Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,10 +462,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 00B79211115538BE8302DF6F /* Pods-FoodFinder2-FoodFinder2Tests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = FoodFinder2Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -485,11 +491,16 @@
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3P355FMZCU;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FoodFinder2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -512,10 +523,15 @@
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3P355FMZCU;
 				INFOPLIST_FILE = FoodFinder2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -579,7 +595,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -638,7 +654,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
